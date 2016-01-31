@@ -28,7 +28,7 @@ coverage
 build/Release
 
 # Dependency directory
-node_modules
+src/main/frontend/node_modules
 
 # Optional npm cache directory
 .npm
