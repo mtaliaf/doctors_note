@@ -1,0 +1,22 @@
+syntax = "proto3";
+package doctorsnote;
+
+import "com/doctors_note/note.proto";
+
+option java_package = "com.doctors_note";
+option java_outer_classname = "UserProtos";
+
+message User {
+  string name = 1;
+  string email = 2;
+  
+  enum Type {
+    UNKNOWN = 0;
+    PATIENT = 1;
+    DOCTOR = 2;
+  }
+  Type type = 3;
+
+  repeated Note note= 4;
+}
+
