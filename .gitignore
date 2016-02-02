@@ -148,10 +148,4 @@ src/main/frontend/.tsdrc
 src/main/frontend/.idea
 src/main/frontend/.vscode
 
-src/main/frontend/dist
-src/main/frontend/dev
-src/main/frontend/docs
-src/main/frontend/lib
-src/main/frontend/test
-src/main/frontend/tools/typings/tsd
-src/main/frontend/tmp
+src/main/frontend/release
