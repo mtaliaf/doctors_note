@@ -13,6 +13,7 @@ public class DoctorsNoteServletConfig extends GuiceServletContextListener {
       @Override
       protected void configureServlets() {
         serve("/test").with(TestServlet.class);
+        serveRegex(ServletPaths.PATIENT_NOTES.getServletPath()).with(PatientNotesServlet.class);
       }
     });
   }
