@@ -1,5 +1,5 @@
 import {Component} from 'angular2/core';
-import {Http} from 'angular2/http';
+import {DocNote} from './doc-note'
 
 
 @Component({
@@ -11,12 +11,9 @@ import {Http} from 'angular2/http';
   pipes: []
 })
 export class DocBinder {
-	
-  	constructor(
-  		public id: number,
-	    public name: string,
-	    public note: string
-	) {
-
-  	}
+  patient = new DocNote(1, 'John Smith', 'Doing Great');
+  submitted = false;
+  onSubmit() { this.submitted = true; }
+  // TODO: Remove this when we're done
+  get diagnostic() { return JSON.stringify(this.model); }
 }

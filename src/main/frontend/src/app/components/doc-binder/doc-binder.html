@@ -1,14 +1,15 @@
+{{diagnostic}}
 <h3>Doctors-Binder</h3>
 <form>
   <fieldset class="form-group">
-    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Patient Id">
+    <input type="text" class="form-control" required [(ngModel)]="patient.id"  placeholder="Patient Id">
   </fieldset>
   <fieldset class="form-group">
-    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Patient Name">
+    <input type="text" class="form-control" required [(ngModel)]="patient.name" placeholder="Patient Name">
   </fieldset>
  <fieldset class="form-group">
     <label for="exampleTextarea">NotePad</label>
-    <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+    <textarea class="form-control" required [(ngModel)]="patient.note" rows="3"></textarea>
   </fieldset>
   <button class="createNote">Create Note</button>
   <button class="editnote">Edit Note</button>
