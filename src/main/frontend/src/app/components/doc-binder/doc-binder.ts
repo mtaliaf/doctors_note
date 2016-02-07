@@ -11,8 +11,12 @@ import {Http} from 'angular2/http';
   pipes: []
 })
 export class DocBinder {
+	
+  	constructor(
+  		public id: number,
+	    public name: string,
+	    public note: string
+	) {
 
-  constructor(http:Http) {
-    
-  }
+  	}
 }
