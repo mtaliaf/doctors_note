@@ -27,7 +27,6 @@ public class ServletPath {
   private ServletPath(String path) {
     this.servletPathRegex = toServletPath(path);
     this.pathVariables = parseVariables(path);
-    System.out.println(String.format("Registering path: %s", this));
   }
 
   public String getServletPath() {

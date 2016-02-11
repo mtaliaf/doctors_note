@@ -1,6 +1,5 @@
 apply plugin: 'com.google.protobuf'
 apply plugin: 'eclipse'
-apply from: 'gretty.plugin'
 apply plugin: 'java'
 apply plugin: 'war'
 
@@ -24,7 +23,8 @@ dependencies {
     compile 'com.google.inject:guice:4.+'
     compile 'com.google.inject.extensions:guice-servlet:4.+'
     compile 'com.google.protobuf:protobuf-java:3.0.0-beta-2'
-    compile 'javax.servlet:javax.servlet-api:3.1'
+    compile 'com.google.protobuf:protobuf-java-util:3.0.0-beta-2'
+    compile 'javax.servlet:javax.servlet-api:3.1.0'
  
     testCompile 'junit:junit:4.+'
     testCompile 'com.google.truth:truth:0.28'

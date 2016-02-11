@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 @Singleton
 public class PatientNotesServlet extends HttpServlet {
 
+  private static final long serialVersionUID = 5476646525347252649L;
+
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
