@@ -1,5 +1,6 @@
 import {Component} from 'angular2/core';
-import {DocNote} from './doc-note'
+import {DocNote} from './doc-note';
+// import {notes} from '../../services/notes';
 
 
 @Component({
@@ -11,9 +12,10 @@ import {DocNote} from './doc-note'
   pipes: []
 })
 export class DocBinder {
-  patient = new DocNote(1, 'John Smith', 'Doing Great');
+  patient = new DocNote(null, '', '');
   submitted = false;
   onSubmit() { this.submitted = true; }
   // TODO: Remove this when we're done
-  get diagnostic() { return JSON.stringify(this.model); }
+
+  get diagnostic() { return JSON.stringify(this.patient); }
 }
