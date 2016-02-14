@@ -1,0 +1,25 @@
+syntax = "proto3";
+package doctorsnote;
+
+import "com/doctorsnote/resources/note.proto";
+
+option java_package = "com.doctorsnote";
+option java_outer_classname = "Users";
+
+message Info {
+  string user_id = 1;
+  string name = 2;
+  string email = 3;
+}
+
+message Patient {
+  Info info = 1;
+
+  repeated string note_ids = 2;
+}
+
+message Doctor {
+  Info info = 1;
+
+  repeated string patient_ids = 2;
+}

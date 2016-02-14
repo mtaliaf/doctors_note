@@ -1,0 +1,13 @@
+syntax = "proto3";
+package doctorsnote.endpoints;
+
+import "com/doctorsnote/resources/note.proto";
+import "com/doctorsnote/resources/user.proto";
+
+option java_package = "com.doctorsnote.endpoints";
+option java_outer_classname = "GetPatientNotes";
+
+message PatientNotesResponse {
+  Patient patient = 1;
+  repeated Note notes = 2;
+}

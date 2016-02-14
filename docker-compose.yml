@@ -1,0 +1,21 @@
+version: '2'
+services:
+  backend:
+    container_name: doctors-note-backend
+    image: jetty:9
+    ports:
+      - "80:8080"
+      - "443:8443"
+    volumes:
+      - ./build/libs:/var/lib/jetty/webapps
+    links:
+      - redis
+  redis:
+    container_name: redis-db
+    image: redis:3
+    command: redis-server --appendonly yes
+    volumes:
+      - redis-data:/data
+volumes:
+  redis-data:
+    driver: local

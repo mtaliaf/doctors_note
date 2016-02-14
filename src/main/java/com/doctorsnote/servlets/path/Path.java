@@ -1,10 +1,7 @@
-package com.doctors_note.servlets;
-
-import static com.google.common.base.Preconditions.checkState;
+package com.doctorsnote.servlets.path;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -12,7 +9,7 @@ import com.google.common.base.MoreObjects;
 import com.google.common.base.MoreObjects.ToStringHelper;
 import com.google.common.collect.ImmutableMap;
 
-public class ServletPath {
+public class Path {
 
   private static final Pattern VARIABLE_PATTERN = Pattern.compile("\\{(\\w+)\\}");
   private static final String VARIABLE_REPLACE_STRING = "(\\\\w+)";
@@ -20,13 +17,17 @@ public class ServletPath {
   private final Pattern servletPathRegex;
   private final ImmutableMap<String, Integer> pathVariables;
 
-  public static ServletPath from(String path) {
-    return new ServletPath(path);
+  public static Path from(String path) {
+    return new Path(path);
   }
 
-  private ServletPath(String path) {
+  private Path(String path) {
     this.servletPathRegex = toServletPath(path);
     this.pathVariables = parseVariables(path);
+  }
+
+  public Pattern getServletPathRegex() {
+    return servletPathRegex;
   }
 
   public String getServletPath() {
@@ -35,17 +36,6 @@ public class ServletPath {
 
   ImmutableMap<String, Integer> getVariableToGroupMap() {
     return pathVariables;
-  }
-
-  public Map<String, String> getVariableToValueMap(String requestedPath) {
-    Map<String, String> variableToValueMap = new HashMap<>();
-    Matcher matcher = servletPathRegex.matcher(requestedPath);
-    checkState(matcher.find());
-    for (Entry<String, Integer> entry : getVariableToGroupMap().entrySet()) {
-      variableToValueMap.put(entry.getKey(), matcher.group(entry.getValue()));
-    }
-
-    return ImmutableMap.copyOf(variableToValueMap);
   }
 
   private Pattern toServletPath(String path) {
@@ -70,9 +60,8 @@ public class ServletPath {
   public String toString() {
     ToStringHelper toStringHelper = MoreObjects.toStringHelper(this);
     toStringHelper.addValue(getServletPath());
-    for (Entry<String, Integer> entry : this.pathVariables.entrySet()) {
-      toStringHelper.add(entry.getKey(), entry.getValue());
-    }
+    this.pathVariables.entrySet().forEach(entry ->
+        toStringHelper.add(entry.getKey(), entry.getValue()));
 
     return toStringHelper.toString();
   }

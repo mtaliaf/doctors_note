@@ -1,11 +1,13 @@
 syntax = "proto3";
 package doctorsnote;
 
-option java_package = "com.doctors_note";
-option java_outer_classname = "NoteProtos";
+option java_package = "com.doctorsnote";
+option java_outer_classname = "Notes";
+
+import "google/protobuf/timestamp.proto";
 
 message Note {
-  int64 timestamp = 1;
+  google.protobuf.Timestamp timestamp = 1;
   string title = 2;
   string body = 3;
   
