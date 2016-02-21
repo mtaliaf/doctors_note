@@ -1,4 +1,4 @@
-package com.doctors_note.servlets;
+package com.doctorsnote.servlets;
 
 import javax.servlet.annotation.WebListener;
 
